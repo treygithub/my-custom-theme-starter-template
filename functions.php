@@ -23,4 +23,22 @@ register_nav_menus( [
     'main-menu' => esc_html__( 'Main Menu', 'wpheirarchy' )
     // 'footer-menu ' => esc_html__( 'Footer Menu', 'wpheirarchy'),
 ] );
+
+//setup widget area
+function wphierarchy_widgets_init(){
+    $args = [
+        'name'          => esc_html__( 'Main Sidebar', 'wphierarchy' ),
+        'id'            => 'main-sidebar',
+        'description'   => esc_html( 'Add widgets for main sidebar here', 'wphierarchy' ),
+        'before_widget' => '<section class="widget">',
+        'after_widget'  =>  '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'before_title'  => '</h2>',
+    ];
+    register_sidebar($args);
+}
+add_action( 'widgets_init', 'wphierarchy_widgets_init' );
+
+?>
+
 ?>
